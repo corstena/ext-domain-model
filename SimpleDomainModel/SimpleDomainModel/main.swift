@@ -28,7 +28,7 @@ public struct Money {
     public var currency : String
   
     public func convert(_ to: String) -> Money {
-        let usdEquivalent : Int = convertToUSD(originCurrency: to, amount: self.amount)
+        let usdEquivalent : Int = convertToUSD(originCurrency: self.currency, amount: self.amount)
         var newMoney : Money
         switch to {
             case "GBP":
@@ -107,52 +107,52 @@ open class Job {
 }
 
 ////////////////////////////////////
-// Person
+//// Person
+////
+//open class Person {
+//    open var firstName : String = ""
+//    open var lastName : String = ""
+//    open var age : Int = 0
+//    
+//    fileprivate var _job : Job? = nil
+//    open var job : Job? {
+//        get { }
+//        set(value) {
+//        }
+//    }
+//    
+//    fileprivate var _spouse : Person? = nil
+//    open var spouse : Person? {
+//        get { }
+//        set(value) {
+//        }
+//    }
+//    
+//    public init(firstName : String, lastName: String, age : Int) {
+//        self.firstName = firstName
+//        self.lastName = lastName
+//        self.age = age
+//    }
+//    
+//    open func toString() -> String {
+//    }
+//}
 //
-open class Person {
-    open var firstName : String = ""
-    open var lastName : String = ""
-    open var age : Int = 0
-    
-    fileprivate var _job : Job? = nil
-    open var job : Job? {
-        get { }
-        set(value) {
-        }
-    }
-    
-    fileprivate var _spouse : Person? = nil
-    open var spouse : Person? {
-        get { }
-        set(value) {
-        }
-    }
-    
-    public init(firstName : String, lastName: String, age : Int) {
-        self.firstName = firstName
-        self.lastName = lastName
-        self.age = age
-    }
-    
-    open func toString() -> String {
-    }
-}
-
-////////////////////////////////////
-// Family
-//
-open class Family {
-    fileprivate var members : [Person] = []
-    
-    public init(spouse1: Person, spouse2: Person) {
-    }
-    
-    open func haveChild(_ child: Person) -> Bool {
-    }
-    
-    open func householdIncome() -> Int {
-    }
-}
+//////////////////////////////////////
+//// Family
+////
+//open class Family {
+//    fileprivate var members : [Person] = []
+//    
+//    public init(spouse1: Person, spouse2: Person) {
+//    }
+//    
+//    open func haveChild(_ child: Person) -> Bool {
+//    }
+//    
+//    open func householdIncome() -> Int {
+//    }
+//}
 
 
 
