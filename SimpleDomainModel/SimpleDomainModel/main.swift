@@ -34,7 +34,7 @@ public struct Money {
   }
   public func subtract(_ from: Money) -> Money {
   }
-}wefwefwef
+}wefwefwefsdwdqwd
 
 ////////////////////////////////////
 // Job
