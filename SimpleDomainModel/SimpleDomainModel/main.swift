@@ -90,9 +90,13 @@ public struct Money : CustomStringConvertible {
 ////////////////////////////////////
 // Job
 //
-open class Job {
+open class Job : CustomStringConvertible{
     fileprivate var title : String
     fileprivate var type : JobType
+    
+    public var description: String {
+        return "Title: \(title) Type: \(type)"
+    }
     
     public enum JobType {
         case Hourly(Double)
@@ -131,6 +135,10 @@ open class Person {
     open var lastName : String = ""
     open var age : Int = 0
     
+    public var description: String {
+        return "First Name: \(firstName) Last Name: \(lastName) Age: \(age)"
+    }
+    
     fileprivate var _job : Job? = nil
     open var job : Job? {
         get { return _job }
@@ -167,6 +175,10 @@ open class Person {
 //
 open class Family {
     fileprivate var members : [Person] = []
+    
+    public var description: String {
+        return "Number of members in family: \(members.count)"
+    }
     
     public init(spouse1: Person, spouse2: Person) {
         if spouse1.spouse == nil && spouse2.spouse == nil {

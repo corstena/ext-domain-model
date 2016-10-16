@@ -69,5 +69,16 @@ class FamilyTests : XCTestCase {
     let familyIncome = family.householdIncome()
     XCTAssert(familyIncome == 12000)
   }
+    
+  func testFamilyDescription() {
+    let ted = Person(firstName: "Ted", lastName: "Neward", age: 45)
+    ted.job = Job(title: "Gues Lecturer", type: Job.JobType.Salary(1000))
+    
+    let charlotte = Person(firstName: "Charlotte", lastName: "Neward", age: 45)
+    
+    let family = Family(spouse1: ted, spouse2: charlotte)
+    
+    XCTAssert(family.description == "Number of members in family: 2")
+  }
   
 }
