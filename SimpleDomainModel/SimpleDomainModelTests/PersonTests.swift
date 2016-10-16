@@ -34,6 +34,11 @@ class PersonTests: XCTestCase {
     mike.spouse = Person(firstName: "Bambi", lastName: "Jones", age: 42)
     XCTAssert(mike.spouse != nil)
   }
+    
+  func testPersonDescription() {
+    let ted = Person(firstName: "Ted", lastName: "Neward", age: 45)
+    XCTAssert(ted.description == "First Name: Ted Last Name: Neward Age: 45")
+  }
   
 }
 

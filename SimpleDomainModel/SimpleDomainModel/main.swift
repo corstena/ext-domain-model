@@ -23,12 +23,13 @@ open class TestMe {
 ////////////////////////////////////
 // Money
 //
-public struct Money : CustomStringConvertible {
+public struct Money : CustomStringConvertible, Mathematics {
     public enum validCurrencies {
         case GBP
         case USD
         case CAN
         case EUR
+        case YEN
     }
     
     public var amount : Int
@@ -50,6 +51,8 @@ public struct Money : CustomStringConvertible {
                 newMoney = Money(amount : usdEquivalent * 5 / 4, currency : validCurrencies.CAN)
             case validCurrencies.EUR:
                 newMoney = Money(amount : usdEquivalent * 3 / 2, currency : validCurrencies.EUR)
+            case validCurrencies.YEN:
+                newMoney = Money(amount : usdEquivalent, currency : validCurrencies.YEN)
         }
         return newMoney
     }
@@ -64,6 +67,8 @@ public struct Money : CustomStringConvertible {
                 return amount * 2 / 3
             case validCurrencies.CAN:
                 return amount * 4 / 5
+            case validCurrencies.YEN:
+                return amount
         }
     }
 
@@ -85,6 +90,19 @@ public struct Money : CustomStringConvertible {
         let convertedCurrency = self.convert(from.currency)
         return Money(amount: from.amount - convertedCurrency.amount, currency: from.currency)
     }
+}
+
+protocol Mathematics {
+    func add(_ to : Money) -> Money
+    func subtract(_ from : Money) -> Money
+}
+
+extension Double {
+    var USD : Money { return Money(amount: Int(self), currency: Money.validCurrencies.USD)}
+    var CAN : Money { return Money(amount: Int(self), currency: Money.validCurrencies.CAN)}
+    var EUR : Money { return Money(amount: Int(self), currency: Money.validCurrencies.EUR)}
+    var GBP : Money { return Money(amount: Int(self), currency: Money.validCurrencies.GBP)}
+    var YEN : Money { return Money(amount: Int(self), currency: Money.validCurrencies.YEN)}
 }
 
 ////////////////////////////////////

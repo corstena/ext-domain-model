@@ -96,5 +96,13 @@ class MoneyTests: XCTestCase {
     let amount = "USD10"
     XCTAssert(tenUSD.description == amount)
   }
+  func testSubtract() {
+    let total = tenUSD.subtract(fiveGBP)
+    XCTAssert(total.amount == 0)
+    XCTAssert(total.currency == Money.validCurrencies.GBP)
+  }
+  func testDouble() {
+    XCTAssert(51.28.YEN.currency == Money.validCurrencies.YEN)
+  }
 }
 
