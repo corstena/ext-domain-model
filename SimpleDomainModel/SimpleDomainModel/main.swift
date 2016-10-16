@@ -23,7 +23,7 @@ open class TestMe {
 ////////////////////////////////////
 // Money
 //
-public struct Money {
+public struct Money : CustomStringConvertible {
     public enum validCurrencies {
         case GBP
         case USD
@@ -33,6 +33,10 @@ public struct Money {
     
     public var amount : Int
     public var currency : validCurrencies
+    
+    public var description: String {
+        return "\(currency)\(amount)"
+    }
   
     public func convert(_ to: validCurrencies) -> Money {
         let usdEquivalent : Int = convertToUSD(originCurrency: self.currency, amount: self.amount)

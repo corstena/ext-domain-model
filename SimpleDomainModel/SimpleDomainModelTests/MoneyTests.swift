@@ -8,7 +8,7 @@
 
 import XCTest
 
-import SimpleDomainModel
+import ExtDomainModel
 
 //////////////////
 // MoneyTests
@@ -91,6 +91,10 @@ class MoneyTests: XCTestCase {
     let total = tenUSD.add(fiveGBP)
     XCTAssert(total.amount == 10)
     XCTAssert(total.currency == Money.validCurrencies.GBP)
+  }
+  func testmoneyString() {
+    let amount = "USD10"
+    XCTAssert(tenUSD.description == amount)
   }
 }
 
